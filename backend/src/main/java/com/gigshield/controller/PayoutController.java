@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
  * REST Controller for Payout calculation endpoints.
  */
 @RestController
-@RequestMapping("/payout")
+@RequestMapping("/api/payout")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class PayoutController {

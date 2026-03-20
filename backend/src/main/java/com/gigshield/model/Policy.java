@@ -27,7 +27,7 @@ public class Policy {
     private Worker worker;
 
     @Column(nullable = false, length = 50)
-    private String planType; // BASIC, STANDARD, PRO
+    private String planType;
 
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal monthlyPremium;
@@ -43,20 +43,28 @@ public class Policy {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
+    @Builder.Default
     private PolicyStatus status = PolicyStatus.ACTIVE;
 
     @Column(precision = 10, scale = 2)
+    @Builder.Default
     private BigDecimal totalPayedOut = BigDecimal.ZERO;
 
     @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime createdAt;
 
     @Column(nullable = false)
-    private LocalDateTime updatedAt = LocalDateTime.now();
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
 
     @PreUpdate
     protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
     }
 
     public enum PolicyStatus {

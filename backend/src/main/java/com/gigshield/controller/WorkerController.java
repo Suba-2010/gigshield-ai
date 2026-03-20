@@ -16,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/workers")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*", allowCredentials = "false", maxAge = 3600)
 public class WorkerController {
 
     private final WorkerService workerService;

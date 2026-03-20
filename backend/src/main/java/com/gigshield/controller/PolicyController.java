@@ -14,7 +14,7 @@ import java.util.List;
  * REST Controller for Policy-related endpoints.
  */
 @RestController
-@RequestMapping("/policies")
+@RequestMapping("/api/policies")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class PolicyController {

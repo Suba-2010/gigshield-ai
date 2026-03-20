@@ -14,7 +14,7 @@ import java.util.List;
  * REST Controller for Claim-related endpoints.
  */
 @RestController
-@RequestMapping("/claims")
+@RequestMapping("/api/claims")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class ClaimController {
